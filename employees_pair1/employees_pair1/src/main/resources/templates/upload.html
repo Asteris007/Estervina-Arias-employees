@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload File</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" /> </head>
+<body>
+<div class="container">
+    <h1>File Upload</h1>
+    <form method="POST" action="/upload" enctype="multipart/form-data">
+        <input type="file" name="file" />
+        <button type="submit">Upload</button>
+    </form>
+    <div th:if="${message}" class="message success" th:text="${message}"></div>
+    <div th:if="${results}" class="results">
+        <h2>Резултати от обработката:</h2>
+        <ul>
+            <li th:each="result : ${results}" th:text="${result}"></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
